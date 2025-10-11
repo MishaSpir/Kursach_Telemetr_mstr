@@ -142,8 +142,14 @@ int main(void){
 	uint8_t str_tx[]={0xC0,0x00,0x00,0x1A,0x06,0x44};
 	uart2_write(str_tx,6);
 	delay_ms(200); 
-	uint8_t str2_tx[]={0xC1, 0xC1, 0xC1};
-	uart2_write(str2_tx,3);
+	gpio_clear(GPIOB,M0);
+	gpio_clear(GPIOB,M1);
+	delay_ms(2000); 
+	// uint8_t str_tx[]={"Hello!"};
+	// uart2_write(str_tx,6);
+	// delay_ms(200); 
+	// uint8_t str2_tx[]={0xC1, 0xC1, 0xC1};
+	// uart2_write(str2_tx,3);
 	
 	
 	
@@ -175,7 +181,7 @@ int main(void){
 				b.full_ = false;
 				gpio_clear(GPIOB,M0);
 				gpio_clear(GPIOB,M1);
-				// usart_send_blocking(USART1,'/n');
+				// usart_send_blocking(USART1,'\n');
 			}
 			
 		
