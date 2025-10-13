@@ -1,5 +1,5 @@
-#include "Pars.hpp"
-
+#include "../inc/Pars.hpp"
+// #include <libopencm3/stm32/usart.h>
 
 
 void Circular_buffer::put(uint8_t d){
@@ -114,3 +114,36 @@ char* itoa(int value, char* buffer, int base) {
   // поскольку мы вычисляли цифры с конца, нужно перевернуть массив
   return reverse(buffer, 0, i - 1);
 }
+
+/*-----------------пример, как отправлять разные по значению, но одинаковые по длине int
+int int_temp = 6; 
+char char_temp[3];
+itoa(int_temp,char_temp,10);
+
+//ФОРМИРУЕМ ПАКЕТ ДАННЫХ (ПРОТОКОЛ)
+	// usart_send_blocking(USART2,'$');
+	// // usart_send_blocking(USART2,'1');
+	// // usart_send_blocking(USART2,'2');
+	// // usart_send_blocking(USART2,'3');
+	// usart_send_blocking(USART2,char_temp[0]);
+	// usart_send_blocking(USART2,char_temp[1]);
+	// usart_send_blocking(USART2,char_temp[2]);
+	// usart_send_blocking(USART2,',');
+	// usart_send_blocking(USART2,'4');
+	// usart_send_blocking(USART2,'6');
+	// usart_send_blocking(USART2,'*');
+*/	
+
+
+	//ФОРМИРУЕМ ПАКЕТ ДАННЫХ (ПРОТОКОЛ)   ПРИМЕР
+	// usart_send_blocking(USART2,'$');
+	// usart_send_blocking(USART2,'1');
+	// usart_send_blocking(USART2,'\0');
+	// usart_send_blocking(USART2,'\0');
+	// usart_send_blocking(USART2,'\0');
+	// usart_send_blocking(USART2,',');
+	// usart_send_blocking(USART2,'5');
+	// usart_send_blocking(USART2,'6');
+	// usart_send_blocking(USART2,'7');
+	// usart_send_blocking(USART2,'\0');
+	// usart_send_blocking(USART2,'*');

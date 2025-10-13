@@ -2,12 +2,16 @@ message(STATUS "\tSources")
 
 
 add_executable(${CMAKE_PROJECT_NAME}
-    main.cpp
+     main.cpp
+     Pars.cpp
+     setup.cpp
+     LiquidCrystalSTM.cpp
 )
 
 target_include_directories(${CMAKE_PROJECT_NAME}
     PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
+     ${CMAKE_CURRENT_LIST_DIR}/inc
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
