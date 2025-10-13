@@ -25,6 +25,8 @@ private:
 	bool full_;
 };
 
+
+
 void uart3_write(uint8_t* data, const uint32_t length );
 void uart2_write(uint8_t* data, const uint32_t length );
 void uart1_write(uint8_t* data, const uint32_t length );
