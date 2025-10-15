@@ -6,6 +6,10 @@
 #include <stdint.h>
 
 
+// ========================TIMER2==================
+
+volatile uint32_t tiks_us ;
+
 void pinWrite(uint32_t port,uint16_t pin, uint8_t val){
 	if (val == 0) {
         gpio_clear(port,pin);  // Установить бит в 0 (побитовое И с инверсией)
@@ -14,9 +18,7 @@ void pinWrite(uint32_t port,uint16_t pin, uint8_t val){
     }
 }
 
-// ========================TIMER2_FUNCTIONS_DEFINE_BEGIN==================
 
-volatile uint32_t tiks_us ;
 
  void lcd_timer2_setup(void) {
     rcc_periph_clock_enable(RCC_TIM2);
@@ -61,7 +63,7 @@ void delay_ms(uint32_t ms) {
 }
   
 
-//====================TIMER2_FUNCTIONS_DEFINE_END===========================
+//===============================================
 
 
 
@@ -314,7 +316,7 @@ void LiquidCrystal::home()
   delay_us(2000);  // this command takes a long time!
 }
 
-void LiquidCrystal::setCursor(uint8_t col, uint8_t row)
+void LiquidCrystal::setCursor(uint8_t row, uint8_t col)
 {
   const size_t max_lines = sizeof(_row_offsets) / sizeof(*_row_offsets);
   if ( row >= max_lines ) {
